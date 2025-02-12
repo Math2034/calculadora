@@ -15,11 +15,11 @@ function factorial(n) {
 }
 
 function cubed(n){
-  return n * n * n
+  return n * n * n;
 }
 
 function squared(n){
-  return n*n
+  return n*n;
 }
 
 function calculate(){
@@ -27,19 +27,24 @@ function calculate(){
   const numberInput = document.getElementById("number");
   const number = parseInt(numberInput.value);
 
-  document.getElementById('factorial').value = factorial(number)
-  document.getElementById('squared').value = squared(number)
-  document.getElementById('cubed').value = cubed(number)
+  if(number < 0 || number > 50){
+    alert("Error: insert a number between 0 and 50");
+    return;
+  }
+
+  document.getElementById('factorial').value = factorial(number);
+  document.getElementById('squared').value = squared(number);
+  document.getElementById('cubed').value = cubed(number);
 
 	
 // End of calculate() function.
 }
 
-document.getElementById("calculate").addEventListener("click", calculate);
 
 function init(){
+  document.getElementById("calculate").addEventListener("click", calculate);
 
-    var theForm = document.getElementById('theForm')
+    var theForm = document.getElementById('theForm');
     theForm.onsubmit = calculate;
 
   // End of init() function.
